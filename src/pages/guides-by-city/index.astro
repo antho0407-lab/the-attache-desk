@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Meridians from '../../components/Meridians.astro';
+import { cities } from '../../data/cities';
+import { getCollection } from 'astro:content';
+
+const guides = await getCollection('guides', (g) => g.data.status === 'published');
+const countFor = (slug: string) => guides.filter((g) => g.data.city === slug).length;
+---
+<BaseLayout
+  title="Guides by City"
+  description="City-by-city guides for diplomats and international officials, organised by posting."
+>
+  <section class="page-head">
+    <Meridians />
+    <div class="shell page-head__inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a><span class="sep">/</span><span>Guides by City</span>
+      </nav>
+      <span class="eyebrow eyebrow--on-navy">Country Desks</span>
+      <h1>Guides by City</h1>
+      <p class="page-head__lede">
+        Choose a posting to see its guides. Active desks have published guide
+        sets; others are in preparation.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="city-grid">
+        {cities.map((c) => {
+          const n = countFor(c.slug);
+          return (
+            <a
+              class:list={['city-card', { 'city-card--soon': c.status === 'soon' }]}
+              href={`/guides-by-city/${c.slug}`}
+            >
+              <span class="city-card__code">
+                <span>{c.cc}</span>
+                <span>{c.status === 'active' ? `${n} guide${n === 1 ? '' : 's'}` : 'In prep.'}</span>
+              </span>
+              <span class="city-card__name">{c.name}</span>
+              <span class="city-card__country">{c.country}</span>
+              <span class="city-card__meta">
+                <span class:list={['status-dot', { 'status-dot--active': c.status === 'active' }]}></span>
+                {c.note}
+              </span>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

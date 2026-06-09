@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Meridians from '../../components/Meridians.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('brief', (b) => b.data.status === 'published')).sort(
+  (a, b) => +new Date(b.data.date) - +new Date(a.data.date),
+);
+
+const fmtDate = (iso: string) =>
+  new Date(iso).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+---
+<BaseLayout
+  title="The Brief"
+  description="Short, practical briefings on diplomatic relocation, protocol and daily life on posting."
+>
+  <section class="page-head">
+    <Meridians />
+    <div class="shell page-head__inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a><span class="sep">/</span><span>The Brief</span>
+      </nav>
+      <span class="eyebrow eyebrow--on-navy">Dispatches</span>
+      <h1>The Brief</h1>
+      <p class="page-head__lede">
+        Short, practical briefings on relocation, protocol and the daily mechanics
+        of life on posting — between the longer city guides.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell shell--narrow">
+      {posts.length === 0 ? (
+        <div class="note">
+          <strong>In preparation</strong>
+          The first briefings are being written. Check back shortly.
+        </div>
+      ) : (
+        <div class="brief-list">
+          {posts.map((post) => (
+            <a class="brief-list__row" href={`/the-brief/${post.id}`}>
+              <span class="brief-list__date">{fmtDate(post.data.date)}</span>
+              <span>
+                <span class="brief-list__title">{post.data.title}</span>
+                <span class="brief-list__dek">{post.data.dek}</span>
+                <span class="brief-list__tag">{post.data.tag}</span>
+              </span>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>

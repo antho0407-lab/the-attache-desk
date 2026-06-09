@@ -1,0 +1,45 @@
+---
+import { cities } from '../data/cities';
+const year = new Date().getFullYear();
+const activeCities = cities.filter((c) => c.status === 'active');
+---
+<footer class="site-footer">
+  <div class="shell">
+    <div class="footer-grid">
+      <div>
+        <a class="wordmark" href="/">
+          <span class="wordmark__name">The Attaché&nbsp;<em>Desk</em></span>
+          <span class="wordmark__kicker">Diplomatic Field Reference</span>
+        </a>
+        <p class="footer-blurb">
+          Practical, structured guidance for diplomats, consular staff and
+          international officials moving between postings.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Postings</h4>
+        <ul>
+          {activeCities.map((c) => (
+            <li><a href={`/guides-by-city/${c.slug}`}>{c.name}</a></li>
+          ))}
+          <li><a href="/guides-by-city">All cities</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>The Desk</h4>
+        <ul>
+          <li><a href="/the-brief">The Brief</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/legal-terms">Legal Terms</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-base">
+      <span>© {year} The Attaché Desk</span>
+      <span>Editorial reference — not legal, tax or immigration advice.</span>
+    </div>
+  </div>
+</footer>

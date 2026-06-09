@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Meridians from '../../components/Meridians.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('brief', (b) => b.data.status === 'published');
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const fmtDate = (iso: string) =>
+  new Date(iso).toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' });
+---
+<BaseLayout title={post.data.title} description={post.data.dek}>
+  <section class="doc-head">
+    <Meridians />
+    <div class="shell doc-head__inner">
+      <a class="backlink" href="/the-brief"><span class="arrow">←</span> The Brief</a>
+      <span class="eyebrow eyebrow--on-navy">{post.data.tag} · {fmtDate(post.data.date)}</span>
+      <h1>{post.data.title}</h1>
+      <p class="doc-head__sum">{post.data.dek}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <article class="prose">
+        <Content />
+      </article>
+
+      <div class="doc-foot">
+        <div class="note">
+          <strong>Editorial note</strong>
+          Briefings are general orientation, not legal, tax or immigration advice.
+          Confirm anything that affects your status or entitlements with your
+          mission and the relevant official sources.
+        </div>
+        <p style="margin-top:1.6rem;">
+          <a class="tlink" href="/the-brief"><span class="arrow">←</span> All briefings</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

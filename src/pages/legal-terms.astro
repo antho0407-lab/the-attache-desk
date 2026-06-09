@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const updated = '9 June 2026';
+---
+<BaseLayout
+  title="Legal Terms"
+  description="Terms of use, disclaimer and editorial policy for The Attaché Desk."
+>
+  <section class="page-head">
+    <div class="shell page-head__inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a><span class="sep">/</span><span>Legal Terms</span>
+      </nav>
+      <span class="eyebrow eyebrow--on-navy">Reference</span>
+      <h1>Legal Terms</h1>
+      <p class="page-head__lede">Terms of use, disclaimer and editorial policy.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <article class="prose">
+        <div class="note">
+          <strong>Template — review required</strong>
+          This page is a plain-language starting point, not finished legal text.
+          Replace the bracketed placeholders and have it reviewed by qualified
+          counsel in the relevant jurisdiction before publishing. Items marked
+          [&hellip;] need real operator details.
+        </div>
+
+        <p class="ref" style="margin-top:1.6rem;">Last updated: {updated}</p>
+
+        <h2>1. Who runs this site</h2>
+        <p>
+          The Attaché Desk (&ldquo;the Site&rdquo;) is operated by [Operator legal
+          name], [registered address], reachable at [contact email]. References to
+          &ldquo;we&rdquo; and &ldquo;us&rdquo; mean the operator.
+        </p>
+
+        <h2>2. Nature of the content</h2>
+        <p>
+          The Site is an editorial reference. Its content is general information
+          for diplomats, consular staff and international officials. It is
+          <strong>not</strong> legal, tax, immigration, financial, security or
+          relocation advice, and no professional relationship is created by using
+          it. Rules and procedures vary by mission, accreditation, nationality and
+          personal circumstances, and they change over time.
+        </p>
+
+        <h2>3. No reliance; verify before acting</h2>
+        <p>
+          Do not rely on the Site as the basis for any decision affecting your
+          status, entitlements or obligations. Always confirm specifics with your
+          mission, the host-country authorities and the relevant official sources
+          before acting. To the extent permitted by law, we accept no liability
+          for loss arising from reliance on the content.
+        </p>
+
+        <h2>4. Accuracy and corrections</h2>
+        <p>
+          We aim to keep guides current and to date-stamp them, but we do not
+          warrant that the content is complete, accurate or up to date. If you
+          spot an error, write to [corrections email] and we will review it.
+        </p>
+
+        <h2>5. External links</h2>
+        <p>
+          The Site links to third-party sources, including official authorities.
+          We are not responsible for the content, accuracy or availability of
+          external sites, and a link is not an endorsement.
+        </p>
+
+        <h2>6. Intellectual property</h2>
+        <p>
+          Unless stated otherwise, the editorial content, layout and branding of
+          the Site are owned by the operator or its licensors. You may read and
+          share links to the content for personal, non-commercial use.
+          Republication or systematic copying requires written permission.
+        </p>
+
+        <h2>7. Privacy</h2>
+        <p>
+          [Describe what data, if any, the Site collects — for example analytics
+          or none — and link to a separate Privacy Policy if required by
+          applicable law, such as the GDPR.]
+        </p>
+
+        <h2>8. Changes to these terms</h2>
+        <p>
+          We may update these terms from time to time. The &ldquo;last
+          updated&rdquo; date above reflects the current version.
+        </p>
+
+        <h2>9. Governing law</h2>
+        <p>
+          These terms are governed by the laws of [jurisdiction], and disputes are
+          subject to the courts of [jurisdiction], without prejudice to any
+          mandatory consumer protections that apply to you.
+        </p>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,165 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Meridians from '../components/Meridians.astro';
+import { cities, cityBySlug } from '../data/cities';
+import { getCollection } from 'astro:content';
+
+// --- Featured guides (as specified by the editorial brief) ---------------
+const allGuides = await getCollection('guides', (g) => g.data.status === 'published');
+const featuredKeys = [
+  { city: 'paris', category: 'vehicles' },
+  { city: 'paris', category: 'schools' },
+  { city: 'geneva', category: 'living' },
+  { city: 'brussels', category: 'security' },
+];
+const featured = featuredKeys
+  .map((k) => allGuides.find((g) => g.data.city === k.city && g.data.category === k.category))
+  .filter((g): g is NonNullable<typeof g> => Boolean(g));
+
+// --- Latest from The Brief ----------------------------------------------
+const brief = (await getCollection('brief', (b) => b.data.status === 'published')).sort(
+  (a, b) => +new Date(b.data.date) - +new Date(a.data.date),
+);
+const latest = brief.slice(0, 3);
+
+const fmtDate = (iso: string) =>
+  new Date(iso).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+---
+<BaseLayout title="The Attaché Desk">
+  <!-- 1. Hero ------------------------------------------------------------ -->
+  <section class="hero">
+    <Meridians />
+    <div class="shell hero__inner reveal">
+      <span class="eyebrow eyebrow--on-navy">Field Reference · Relocation &amp; Postings</span>
+      <h1>Practical city guides for <span class="accent">diplomatic life</span> abroad.</h1>
+      <p class="hero__sub">
+        Clear, structured guidance for diplomats, consular staff and international
+        officials preparing for life in a new posting.
+      </p>
+      <div class="hero__actions">
+        <a class="btn" href="/guides-by-city">Browse Guides by City <span class="arrow">→</span></a>
+        <a class="btn btn--on-navy" href="/the-brief">Read The Brief</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Choose your posting city --------------------------------------- -->
+  <section class="section">
+    <div class="shell">
+      <div class="section-head">
+        <div class="section-head__text">
+          <span class="eyebrow">Country Desks</span>
+          <h2 class="section-title">Choose your posting city</h2>
+        </div>
+        <a class="tlink" href="/guides-by-city">All cities <span class="arrow">→</span></a>
+      </div>
+
+      <div class="city-grid">
+        {cities.map((c) => (
+          <a
+            class:list={['city-card', { 'city-card--soon': c.status === 'soon' }]}
+            href={`/guides-by-city/${c.slug}`}
+          >
+            <span class="city-card__code">
+              <span>{c.cc}</span>
+              <span>{c.status === 'active' ? 'Active' : 'In prep.'}</span>
+            </span>
+            <span class="city-card__name">{c.name}</span>
+            <span class="city-card__country">{c.country}</span>
+            <span class="city-card__meta">
+              <span class:list={['status-dot', { 'status-dot--active': c.status === 'active' }]}></span>
+              {c.note}
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Featured guides ------------------------------------------------- -->
+  {featured.length > 0 && (
+    <section class="section section--sunk">
+      <div class="shell">
+        <div class="section-head">
+          <div class="section-head__text">
+            <span class="eyebrow">Selected Reading</span>
+            <h2 class="section-title">Featured guides</h2>
+          </div>
+        </div>
+
+        <div class="contents">
+          {featured.map((g) => {
+            const city = cityBySlug(g.data.city);
+            return (
+              <a class="contents-row" href={`/guides-by-city/${g.data.city}/${g.data.category}`}>
+                <span class="contents-row__ref">{g.data.ref}</span>
+                <span class="contents-row__body">
+                  <span class="contents-row__title">{g.data.title}</span>
+                  <span class="contents-row__sum">{g.data.summary}</span>
+                </span>
+                <span class="contents-row__city">{city?.name ?? g.data.city}</span>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- 4. Latest from The Brief ------------------------------------------ -->
+  {latest.length > 0 && (
+    <section class="section section--navy">
+      <div class="shell">
+        <div class="section-head">
+          <div class="section-head__text">
+            <span class="eyebrow eyebrow--on-navy">Dispatches</span>
+            <h2 class="section-title">Latest from The Brief</h2>
+          </div>
+          <a class="tlink btn--on-navy" href="/the-brief" style="border:0;padding:0;color:var(--on-navy);">View all <span class="arrow">→</span></a>
+        </div>
+
+        <div class="brief-grid">
+          {latest.map((post) => (
+            <a class="brief-card" href={`/the-brief/${post.id}`}>
+              <span class="brief-card__meta">
+                <span>{post.data.tag}</span>
+                <span>{fmtDate(post.data.date)}</span>
+              </span>
+              <span class="brief-card__title">{post.data.title}</span>
+              <span class="brief-card__dek">{post.data.dek}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- 5. About ----------------------------------------------------------- -->
+  <section class="section">
+    <div class="shell">
+      <div class="about-split">
+        <div>
+          <span class="eyebrow">About the Desk</span>
+          <p class="about-split__lead">
+            A reference desk for the practical side of <span class="accent">diplomatic
+            life</span> — written for the people who do the moving.
+          </p>
+        </div>
+        <div class="about-split__body flow">
+          <p>
+            The Attaché Desk gathers what you actually need when a posting is
+            confirmed: how things work locally, what to arrange first, and where
+            the practical pitfalls sit. Each guide is organised so you can scan
+            it quickly and act on it.
+          </p>
+          <p>
+            It is not a concierge, not a relocation agency, and not a blog. It is
+            an editorial resource — structured, current, and written in plain
+            terms for diplomats, consular staff and international officials.
+          </p>
+          <p><a class="tlink" href="/about">More about The Attaché Desk <span class="arrow">→</span></a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

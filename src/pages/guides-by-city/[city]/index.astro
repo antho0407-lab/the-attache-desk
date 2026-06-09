@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Meridians from '../../../components/Meridians.astro';
+import { cities, cityBySlug } from '../../../data/cities';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  return cities.map((c) => ({ params: { city: c.slug } }));
+}
+
+const { city } = Astro.params;
+const cityInfo = cityBySlug(city!)!;
+
+const guides = (await getCollection('guides', (g) => g.data.status === 'published'))
+  .filter((g) => g.data.city === city)
+  .sort((a, b) => a.data.order - b.data.order);
+
+// The standard editorial guide set; categories without a published guide are
+// shown as "in preparation" so the structure is always visible.
+const standard = [
+  { category: 'living', label: 'Living' },
+  { category: 'vehicles', label: 'Vehicles' },
+  { category: 'schools', label: 'Schools' },
+  { category: 'security', label: 'Security' },
+];
+const published = new Set(guides.map((g) => g.data.category));
+const pending = standard.filter((s) => !published.has(s.category));
+
+const fmtDate = (iso: string) =>
+  new Date(iso).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+---
+<BaseLayout
+  title={`${cityInfo.name} — Guides`}
+  description={`Practical guides for diplomats and international officials posted to ${cityInfo.name}, ${cityInfo.country}.`}
+>
+  <section class="page-head">
+    <Meridians />
+    <div class="shell page-head__inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a><span class="sep">/</span>
+        <a href="/guides-by-city">Guides by City</a><span class="sep">/</span>
+        <span>{cityInfo.name}</span>
+      </nav>
+      <span class="eyebrow eyebrow--on-navy">{cityInfo.cc} · Country Desk</span>
+      <h1>{cityInfo.name}</h1>
+      <p class="page-head__lede">{cityInfo.note} {cityInfo.country}.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell shell--narrow">
+      {guides.length === 0 && (
+        <div class="note">
+          <strong>In preparation</strong>
+          The {cityInfo.name} guide set is being researched and reviewed. The
+          standard structure is shown below; published guides will appear here
+          as they are released.
+        </div>
+      )}
+
+      <div class="guide-index">
+        {guides.map((g) => (
+          <a class="guide-index__row" href={`/guides-by-city/${city}/${g.data.category}`}>
+            <span class="guide-index__cat">{g.data.categoryLabel}</span>
+            <span>
+              <span class="guide-index__title">{g.data.title}</span>
+              <span class="guide-index__sum">{g.data.summary}</span>
+            </span>
+            <span class="guide-index__date">Rev. {fmtDate(g.data.reviewed)}</span>
+          </a>
+        ))}
+
+        {pending.map((s) => (
+          <span class="guide-index__row guide-index__row--soon" aria-disabled="true">
+            <span class="guide-index__cat">{s.label}</span>
+            <span>
+              <span class="guide-index__title">{s.label} in {cityInfo.name}</span>
+              <span class="guide-index__sum">In preparation.</span>
+            </span>
+            <span class="guide-index__date">—</span>
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

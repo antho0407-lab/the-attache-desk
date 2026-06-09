@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Meridians from '../components/Meridians.astro';
+---
+<BaseLayout
+  title="About"
+  description="What The Attaché Desk is — an editorial reference for diplomats, consular staff and international officials on posting."
+>
+  <section class="page-head">
+    <Meridians />
+    <div class="shell page-head__inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a><span class="sep">/</span><span>About</span>
+      </nav>
+      <span class="eyebrow eyebrow--on-navy">About the Desk</span>
+      <h1>An editorial desk for diplomatic life.</h1>
+      <p class="page-head__lede">
+        A practical reference for the people who move between postings —
+        structured, current, and written in plain terms.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <article class="prose">
+        <p>
+          The Attaché Desk exists for a specific moment: a posting is confirmed,
+          and a great deal has to be arranged quickly in a place where the rules,
+          the paperwork and the everyday logistics are unfamiliar. It is written
+          for diplomats, consular staff and international officials, and for the
+          families who move with them.
+        </p>
+
+        <h2>What it is</h2>
+        <p>
+          A reference resource, organised city by city. Each guide is built to be
+          scanned and acted on: what to arrange first, how the local system tends
+          to work, and where the practical pitfalls sit. Alongside the longer
+          guides, <a href="/the-brief">The Brief</a> carries shorter dispatches on
+          relocation, protocol and the daily mechanics of life on posting.
+        </p>
+
+        <h2>What it is not</h2>
+        <p>
+          It is not a concierge service and not a relocation agency — it sells
+          nothing and arranges nothing on your behalf. It is not a personal blog,
+          and it is not a substitute for legal, tax or immigration advice. Where
+          your status, entitlements or obligations are involved, your mission and
+          the relevant official authorities remain the authority; this desk is
+          orientation that helps you ask the right questions.
+        </p>
+
+        <h2>How it is written</h2>
+        <p>
+          The register is deliberately plain and structured: useful, discreet, and
+          free of marketing. Guides carry a last-reviewed date and a file
+          reference so you can see how current they are. Specifics that change
+          frequently — figures, thresholds, procedures — are flagged for
+          verification against primary sources rather than presented as settled.
+        </p>
+
+        <h2>Corrections</h2>
+        <p>
+          Accuracy matters more than speed here. If something is out of date or
+          wrong, it should be corrected — a contact route for corrections is set
+          out on the <a href="/legal-terms">Legal Terms</a> page.
+        </p>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

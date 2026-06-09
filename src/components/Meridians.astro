@@ -1,0 +1,30 @@
+---
+// A faint engraved meridian grid — a cartographic nod to postings across the
+// globe. Decorative only; hidden from assistive tech.
+---
+<svg class="hero__meridians" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+  <defs>
+    <radialGradient id="globe-fade" cx="78%" cy="32%" r="60%">
+      <stop offset="0%" stop-color="rgba(241,239,232,0.10)" />
+      <stop offset="100%" stop-color="rgba(241,239,232,0)" />
+    </radialGradient>
+  </defs>
+  <g stroke="rgba(241,239,232,0.085)" stroke-width="1" fill="none">
+    <!-- Sphere of meridians, anchored top-right -->
+    <circle cx="960" cy="170" r="300" />
+    <circle cx="960" cy="170" r="300" transform="rotate(0 960 170)" />
+    <ellipse cx="960" cy="170" rx="300" ry="92" />
+    <ellipse cx="960" cy="170" rx="300" ry="184" />
+    <ellipse cx="960" cy="170" rx="92" ry="300" />
+    <ellipse cx="960" cy="170" rx="184" ry="300" />
+    <line x1="660" y1="170" x2="1260" y2="170" />
+    <line x1="960" y1="-130" x2="960" y2="470" />
+  </g>
+  <circle cx="960" cy="170" r="300" fill="url(#globe-fade)" />
+  <!-- A discreet plotted bearing -->
+  <g stroke="rgba(162,58,54,0.5)" stroke-width="1.2" fill="none">
+    <line x1="960" y1="170" x2="1108" y2="78" />
+  </g>
+  <circle cx="1108" cy="78" r="3" fill="rgba(162,58,54,0.85)" />
+  <circle cx="960" cy="170" r="2.4" fill="rgba(241,239,232,0.55)" />
+</svg>
