@@ -1,17 +1,39 @@
 ---
-title: Two conventions worth knowing by name
+title: "Two conventions worth knowing by name"
 date: "2026-05-12"
-dek: Privileges and immunities don't come from custom alone. A brief note on the documents underneath them.
-tag: Protocol
-status: published
+dek: "Privileges and immunities don't come from custom alone. A brief note on the documents underneath them."
+tag: "Protocol"
+status: "published"
 ---
 
-Diplomatic life runs on a framework most people invoke loosely and few read closely. It is worth knowing two documents by name, because nearly everything about status traces back to them.
+> **For information only.** This article is an editorial orientation resource. It does not constitute legal advice. The application of the Vienna Conventions varies by accreditation category, host state implementing legislation, and individual circumstances. Consult your mission's legal adviser on matters relating to your specific privileges and immunities.
 
-The first is the **Vienna Convention on Diplomatic Relations (1961)**. It sets out the modern law of diplomatic missions — the privileges and immunities of diplomatic agents, the inviolability of mission premises, and the categories of staff. When a question of status arises for embassy staff, this is the instrument underneath the answer.
+---
 
-The second is the **Vienna Convention on Consular Relations (1963)**, which does the parallel work for consular posts. Consular privileges and immunities are generally narrower than diplomatic ones, and the distinction matters in practice — it affects who is covered, and how far.
+The language of diplomatic privilege is casual in practice. "Immunity," "the conventions," "your diplomatic status": phrases used daily, rarely examined. The fact is that this status rests on two specific, binding international treaties that most people on a diplomatic posting have never read.
 
-For staff of international organisations the picture is different again: privileges there typically rest on **headquarters agreements** between the host state and the organisation, rather than on the Vienna conventions directly. Two people working in the same city, one at a bilateral embassy and one at an international body, can sit under quite different regimes.
+## The Vienna Convention on Diplomatic Relations, 1961
 
-None of this is a substitute for your mission's authoritative word on your own case. But knowing which framework applies to you — diplomatic, consular, or organisational — is the difference between asking a precise question and a vague one. The precise question is the one that gets a useful answer.
+Adopted on 18 April 1961 and in force since 24 April 1964, the [Vienna Convention on Diplomatic Relations](https://legal.un.org/ilc/texts/instruments/english/conventions/9_1_1961.pdf) is the foundational treaty governing the legal status of diplomatic missions and their staff. It has 193 states parties as of 2025, effectively universal ratification.
+
+Its core provisions: the inviolability of the mission premises (Article 22), the personal inviolability of diplomatic agents (Article 29), immunity from civil and criminal jurisdiction of the receiving state (Article 31), and exemption from most taxes and customs duties (Articles 34 and 36). Article 24 establishes the notification obligations, the duty to inform the receiving state of the arrival of mission members, which is the trigger for the administrative processes that issue residence documents and accreditation credentials.
+
+The convention also sets the limits of these privileges. Immunity can be waived by the sending state (Article 32). The receiving state can declare a person *persona non grata* at any time (Article 9). And the privileges do not apply to acts performed outside official functions after the person has ceased their mission.
+
+## The Vienna Convention on Consular Relations, 1963
+
+The companion instrument, the [Vienna Convention on Consular Relations](https://legal.un.org/ilc/texts/instruments/english/conventions/9_2_1963.pdf), was adopted on 24 April 1963 and entered into force on 19 March 1967. It governs consular posts separately from diplomatic missions, because consular functions differ from diplomatic ones.
+
+Consular officers enjoy a narrower scope of immunity than diplomatic agents. Under Article 43, immunity from jurisdiction is limited to acts performed in the exercise of consular functions, not to personal acts. Consular premises are inviolable under Article 31, but the conditions under which consular officers may be detained or arrested (Article 41) are less absolute than for diplomatic agents under the 1961 Convention.
+
+For staff of consular posts, as distinct from full diplomatic missions, this distinction matters practically, particularly in relation to the categories of residence documents issued and the vehicle registration series to which they are entitled.
+
+## Why it matters to know them
+
+Most of the time, the day-to-day implications of these conventions are handled by your mission. But there are moments, including a traffic stop, a contractual dispute, a landlord question, an interaction with a tax authority, where knowing the document that underpins your status is useful. The conventions are short (the 1961 Convention runs to 53 articles), publicly available in all UN languages, and worth reading once.
+
+They are also the reference point for your country's bilateral agreements with the host state, which may extend or, rarely, restrict the baseline the conventions establish. Your mission's legal or administrative office holds these bilateral texts.
+
+---
+
+*The official texts of both conventions are available on the [UN Treaty Collection](https://treaties.un.org) and the [United Nations Office of Legal Affairs](https://legal.un.org/ilc/texts/instruments/english/conventions/9_1_1961.pdf).*
