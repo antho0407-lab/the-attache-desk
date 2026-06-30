@@ -4,13 +4,19 @@ city: "paris"
 category: "security"
 categoryLabel: "Security"
 summary: "The current security environment in Paris, the Vigipirate framework, everyday precautions, and emergency contacts for diplomatic and consular staff."
-reviewed: "2026-06-24"
+reviewed: "2026-06-25"
 ref: "FR·SEC·01"
 order: 4
 status: "published"
 ---
 
 > **For information only.** This guide is an editorial orientation resource. It does not constitute security advice and does not replace the guidance of your mission's security officer or your sending organisation. Security situations change; the information here reflects publicly available sources as of the reviewed date. Always follow your mission's current security procedures.
+
+---
+
+## Overview
+
+Paris is a well-policed capital where the everyday risk for diplomatic staff is overwhelmingly opportunistic theft, not violence. The national security posture, currently at the highest Vigipirate level, shapes the broader environment without materially changing daily life in the arrondissements where most diplomatic families live. This guide covers the current alert framework, common crime patterns, the areas most relevant to diplomatic postings, and emergency contacts.
 
 ---
 
@@ -92,3 +98,7 @@ Your mission will have its own security procedures, access protocols and emergen
 - [US State Department: France Travel Advisory](https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/France.html)
 - [US Embassy Paris: Safety Advice](https://fr.usembassy.gov/services/lost-and-found-property-in-paris/safety-advice-for-paris/)
 - [Paris: Official city emergency information](https://www.paris.fr/securite)
+
+---
+
+*Last reviewed 25 June 2026.*

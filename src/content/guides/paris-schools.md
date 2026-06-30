@@ -4,13 +4,19 @@ city: "paris"
 category: "schools"
 categoryLabel: "Schools"
 summary: "The main curricula, established schools, admissions timing, and the questions that matter most for families on a diplomatic posting to Paris."
-reviewed: "2026-06-24"
+reviewed: "2026-06-25"
 ref: "FR·SCH·01"
 order: 3
 status: "published"
 ---
 
 > **For information only.** This guide is an editorial orientation resource. It does not constitute educational or admissions advice, and does not endorse any specific institution. School profiles, fees, and curricula change; always verify current information directly with each school and confirm your eligibility for any financial assistance through your mission or sending organisation.
+
+---
+
+## Overview
+
+Paris has one of the deepest international school markets in Europe, and the volume of choice is itself the first challenge. This guide sets out the curriculum families available, the established schools, what they cost, how admissions timing works, and the practical questions, including language, that matter most when shortlisting.
 
 ---
 
@@ -94,6 +100,12 @@ Test the commute at peak hours before signing a lease.
 
 ---
 
+## French in the school system
+
+The established Anglophone schools (ISP, ASP, BSP, Ermitage, ICS) accept children with no French at entry level and provide French as an additional language from the start; this is not a barrier to enrolment. The bilingual schools (École Jeannine Manuel and similar) and the French OIB sections are a different matter: a child entering at secondary level without an existing foundation in French will struggle to integrate into a programme that runs half or more of its timetable in the language. If your family has no French and is considering a bilingual or OIB option, factor in either additional language support before arrival or a delayed transition once the child has built up French through an Anglophone school first.
+
+---
+
 ## Official and reference sources
 
 - [IB Organisation: Authorised schools directory](https://www.ibo.org/programmes/find-an-ib-school/)
@@ -104,3 +116,7 @@ Test the commute at peak hours before signing a lease.
 - [École Jeannine Manuel](https://www.jeanninemanuel.fr)
 - [Ermitage International School](https://www.ermitage.fr)
 - [ICS Paris](https://www.icsparis.fr)
+
+---
+
+*Last reviewed 25 June 2026.*
