@@ -1,30 +1,149 @@
 ---
-// A faint engraved meridian grid — a cartographic nod to postings across the
-// globe. Decorative only; hidden from assistive tech.
+// Meridians.astro
+// Globe animé avec continents Natural Earth.
+// Remplace le composant SVG précédent. Aucune dépendance npm —
+// D3 et TopoJSON chargés depuis CDN au premier montage.
 ---
-<svg class="hero__meridians" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-  <defs>
-    <radialGradient id="globe-fade" cx="78%" cy="32%" r="60%">
-      <stop offset="0%" stop-color="rgba(241,239,232,0.10)" />
-      <stop offset="100%" stop-color="rgba(241,239,232,0)" />
-    </radialGradient>
-  </defs>
-  <g stroke="rgba(241,239,232,0.085)" stroke-width="1" fill="none">
-    <!-- Sphere of meridians, anchored top-right -->
-    <circle cx="960" cy="170" r="300" />
-    <circle cx="960" cy="170" r="300" transform="rotate(0 960 170)" />
-    <ellipse cx="960" cy="170" rx="300" ry="92" />
-    <ellipse cx="960" cy="170" rx="300" ry="184" />
-    <ellipse cx="960" cy="170" rx="92" ry="300" />
-    <ellipse cx="960" cy="170" rx="184" ry="300" />
-    <line x1="660" y1="170" x2="1260" y2="170" />
-    <line x1="960" y1="-130" x2="960" y2="470" />
-  </g>
-  <circle cx="960" cy="170" r="300" fill="url(#globe-fade)" />
-  <!-- A discreet plotted bearing -->
-  <g stroke="rgba(162,58,54,0.5)" stroke-width="1.2" fill="none">
-    <line x1="960" y1="170" x2="1108" y2="78" />
-  </g>
-  <circle cx="1108" cy="78" r="3" fill="rgba(162,58,54,0.85)" />
-  <circle cx="960" cy="170" r="2.4" fill="rgba(241,239,232,0.55)" />
-</svg>
+
+<canvas
+  id="tad-globe"
+  class="hero__meridians"
+  aria-hidden="true"
+></canvas>
+
+<script is:inline>
+(function () {
+  const canvas = document.getElementById('tad-globe');
+  if (!canvas) return;
+
+  function loadScript(src, globalName) {
+    return new Promise((resolve) => {
+      if (window[globalName]) { resolve(); return; }
+      const s = document.createElement('script');
+      s.src = src;
+      s.onload = resolve;
+      document.head.appendChild(s);
+    });
+  }
+
+  async function init() {
+    await loadScript(
+      'https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js',
+      'd3'
+    );
+    await loadScript(
+      'https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js',
+      'topojson'
+    );
+
+    function resize() {
+      canvas.width  = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+    resize();
+    new ResizeObserver(resize).observe(canvas);
+
+    const cities = [
+      { lon:   2.35, lat: 48.85, active: true  },
+      { lon:   6.15, lat: 46.20, active: true  },
+      { lon:   4.35, lat: 50.85, active: true  },
+      { lon:  16.37, lat: 48.21, active: true  },
+      { lon:  -0.13, lat: 51.51, active: false },
+      { lon: -74.01, lat: 40.71, active: false },
+      { lon: 139.69, lat: 35.68, active: false },
+      { lon: 103.82, lat:  1.35, active: false },
+    ];
+
+    const ctx  = canvas.getContext('2d');
+    const G    = (a) => `rgba(168,121,50,${a})`;
+    let angle  = -10;
+    let land   = null;
+    let grat   = null;
+
+    function projection() {
+      const R = Math.min(canvas.width, canvas.height) * 0.44;
+      return d3.geoOrthographic()
+        .scale(R)
+        .translate([canvas.width / 2, canvas.height / 2])
+        .clipAngle(90)
+        .rotate([angle, -18, 0]);
+    }
+
+    function visible(lon, lat, proj) {
+      const [la, ph] = [
+        (lon + proj.rotate()[0]) * Math.PI / 180,
+        lat * Math.PI / 180,
+      ];
+      const ph0 = -proj.rotate()[1] * Math.PI / 180;
+      return Math.cos(ph) * Math.cos(ph0) * Math.cos(la) +
+             Math.sin(ph) * Math.sin(ph0) > 0;
+    }
+
+    function draw() {
+      const W = canvas.width, H = canvas.height;
+      ctx.clearRect(0, 0, W, H);
+      if (!land) { requestAnimationFrame(draw); return; }
+
+      const proj  = projection();
+      const path  = d3.geoPath(proj, ctx);
+      const R     = proj.scale();
+      const dotR  = R * 0.028;
+
+      ctx.lineWidth = 0.5;
+      ctx.beginPath(); path({ type: 'Sphere' });
+      ctx.strokeStyle = G(0.08); ctx.stroke();
+
+      ctx.lineWidth = 0.7;
+      ctx.beginPath(); path(grat);
+      ctx.strokeStyle = G(0.20); ctx.stroke();
+
+      ctx.lineWidth = 1.0;
+      ctx.beginPath(); path(land);
+      ctx.strokeStyle = G(0.72); ctx.stroke();
+      ctx.fillStyle   = G(0.06); ctx.fill();
+
+      const act = cities.filter(c => c.active && visible(c.lon, c.lat, proj));
+
+      ctx.strokeStyle = G(0.22); ctx.lineWidth = 0.6;
+      for (let i = 0; i < act.length; i++) {
+        for (let j = i + 1; j < act.length; j++) {
+          const p1 = proj([act[i].lon, act[i].lat]);
+          const p2 = proj([act[j].lon, act[j].lat]);
+          if (!p1 || !p2) continue;
+          ctx.beginPath();
+          ctx.moveTo(p1[0], p1[1]);
+          ctx.lineTo(p2[0], p2[1]);
+          ctx.stroke();
+        }
+      }
+
+      cities.forEach(c => {
+        if (!visible(c.lon, c.lat, proj)) return;
+        const p = proj([c.lon, c.lat]);
+        if (!p) return;
+        if (c.active) {
+          ctx.fillStyle = G(1);
+          ctx.beginPath(); ctx.arc(p[0], p[1], dotR, 0, Math.PI * 2); ctx.fill();
+          ctx.strokeStyle = G(0.55); ctx.lineWidth = 0.8;
+          ctx.beginPath(); ctx.arc(p[0], p[1], dotR * 2, 0, Math.PI * 2); ctx.stroke();
+        } else {
+          ctx.fillStyle = G(0.4);
+          ctx.beginPath(); ctx.arc(p[0], p[1], dotR * 0.6, 0, Math.PI * 2); ctx.fill();
+        }
+      });
+
+      angle += 0.055;
+      requestAnimationFrame(draw);
+    }
+
+    d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json')
+      .then(world => {
+        land = topojson.feature(world, world.objects.land);
+        grat = d3.geoGraticule().step([30, 30])();
+        requestAnimationFrame(draw);
+      });
+  }
+
+  init();
+})();
+</script>
