@@ -350,10 +350,11 @@ p { text-wrap: pretty; }
   border-bottom: 1px solid var(--rule);
 }
 .hero__meridians {
-  position: absolute; inset: 0;
+  position: absolute;
+  top: 0; right: 0;
+  width: 52%; height: 100%;
   pointer-events: none;
-  opacity: 0.18;
-  color: var(--gold);
+  display: block;
 }
 .hero__inner {
   position: relative;
