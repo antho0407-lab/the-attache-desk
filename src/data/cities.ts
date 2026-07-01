@@ -40,7 +40,7 @@ export const cities: City[] = [
     country: 'Austria',
     cc: 'AT',
     note: 'UNOV, IAEA, OSCE and OPEC.',
-    status: 'soon',
+    status: 'active',
   },
   {
     slug: 'london',
