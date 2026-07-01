@@ -5,7 +5,7 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   // Update this to your production domain once it is live on Netlify.
   // It is used to generate canonical URLs and the sitemap.
-  site: 'https://the-attache-desk.netlify.app',
+  site: 'https://theattachedesk.com',
   output: 'static',
   build: {
     format: 'directory',
