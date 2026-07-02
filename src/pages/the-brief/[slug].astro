@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Meridians from '../../components/Meridians.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -16,7 +15,6 @@ const fmtDate = (iso: string) =>
 ---
 <BaseLayout title={post.data.title} description={post.data.dek}>
   <section class="doc-head">
-    <Meridians />
     <div class="shell doc-head__inner">
       <a class="backlink" href="/the-brief"><span class="arrow">←</span> The Brief</a>
       <span class="eyebrow eyebrow--on-navy">{post.data.tag} · {fmtDate(post.data.date)}</span>
