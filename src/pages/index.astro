@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Meridians from '../../components/Meridians.astro';
 import { cities, cityBySlug } from '../data/cities';
 import { getCollection } from 'astro:content';
 
@@ -14,7 +15,7 @@ const featuredKeys = [
 const featured = featuredKeys
   .map((k) => allGuides.find((g) => g.data.city === k.city && g.data.category === k.category))
   .filter((g): g is NonNullable<typeof g> => Boolean(g));
-
+<Meridians />
 // --- Latest from The Brief ----------------------------------------------
 const brief = (await getCollection('brief', (b) => b.data.status === 'published')).sort(
   (a, b) => +new Date(b.data.date) - +new Date(a.data.date),
