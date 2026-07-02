@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Meridians from '../../components/Meridians.astro';
 import { cities } from '../../data/cities';
 import { getCollection } from 'astro:content';
 
@@ -12,7 +11,6 @@ const countFor = (slug: string) => guides.filter((g) => g.data.city === slug).le
   description="City-by-city guides for diplomats and international officials, organised by posting."
 >
   <section class="page-head">
-    <Meridians />
     <div class="shell page-head__inner">
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="/">Home</a><span class="sep">/</span><span>Guides by City</span>
