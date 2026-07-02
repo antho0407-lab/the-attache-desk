@@ -1,6 +1,6 @@
 /* =========================================================================
    The Attaché Desk | global stylesheet (ivoire diplomatique edition)
-   Fond ivoire chaud, vert diplomatique (#173D35) pour titres et CTAs,
+   Fond ivoire chaud, charbon chaud (#2A2620) pour titres et CTAs,
    or vieilli (#A87932) en accent uniquement. Bandes sombres (vert) pour
    le footer et la section The Brief. Lecture sur fond ivoire.
    ========================================================================= */
@@ -29,7 +29,7 @@
   --on-navy-muted: #8A8278;
 
   /* Vert diplomatique : titres, wordmark, boutons primaires */
-  --forest: #173D35;
+  --forest: #2A2620;     /* charbon chaud : titres, boutons, noms de villes */
 
   /* Or vieilli : accent uniquement : eyebrows, codes, filets, petits labels */
   --gold: #A87932;
@@ -43,7 +43,7 @@
   --rule-on-navy: rgba(168, 121, 50, 0.25);
 
   /* Statut */
-  --active: #4a9a72;
+  --active: #A87932;     /* or vieilli : point de statut actif */
 
   /* Typographie */
   --display: "Libre Caslon Display", Georgia, "Times New Roman", serif;
