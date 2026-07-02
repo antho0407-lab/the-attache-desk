@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Meridians from '../../components/Meridians.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('brief', (b) => b.data.status === 'published')).sort(
@@ -15,7 +14,6 @@ const fmtDate = (iso: string) =>
   description="Short, practical briefings on diplomatic relocation, protocol and daily life on posting."
 >
   <section class="page-head">
-    <Meridians />
     <div class="shell page-head__inner">
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="/">Home</a><span class="sep">/</span><span>The Brief</span>
