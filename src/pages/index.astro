@@ -1,10 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Meridians from '../../components/Meridians.astro';
+import Meridians from '../components/Meridians.astro';
 import { cities, cityBySlug } from '../data/cities';
 import { getCollection } from 'astro:content';
 
-// --- Featured guides (as specified by the editorial brief) ---------------
 const allGuides = await getCollection('guides', (g) => g.data.status === 'published');
 const featuredKeys = [
   { city: 'paris', category: 'vehicles' },
@@ -15,8 +14,7 @@ const featuredKeys = [
 const featured = featuredKeys
   .map((k) => allGuides.find((g) => g.data.city === k.city && g.data.category === k.category))
   .filter((g): g is NonNullable<typeof g> => Boolean(g));
-<Meridians />
-// --- Latest from The Brief ----------------------------------------------
+
 const brief = (await getCollection('brief', (b) => b.data.status === 'published')).sort(
   (a, b) => +new Date(b.data.date) - +new Date(a.data.date),
 );
@@ -26,8 +24,10 @@ const fmtDate = (iso: string) =>
   new Date(iso).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
 ---
 <BaseLayout title="The Attaché Desk">
-  <!-- 1. Hero ------------------------------------------------------------ -->
+
+  <!-- 1. Hero -->
   <section class="hero">
+    <Meridians />
     <div class="shell hero__inner reveal">
       <span class="eyebrow eyebrow--on-navy">Field Reference · Relocation &amp; Postings</span>
       <h1>Practical city guides for <span class="accent">diplomatic life</span> abroad.</h1>
@@ -42,7 +42,7 @@ const fmtDate = (iso: string) =>
     </div>
   </section>
 
-  <!-- 2. Choose your posting city --------------------------------------- -->
+  <!-- 2. Choose your posting city -->
   <section class="section">
     <div class="shell">
       <div class="section-head">
@@ -52,7 +52,6 @@ const fmtDate = (iso: string) =>
         </div>
         <a class="tlink" href="/guides-by-city">All cities <span class="arrow">→</span></a>
       </div>
-
       <div class="city-grid">
         {cities.map((c) => (
           <a
@@ -75,7 +74,7 @@ const fmtDate = (iso: string) =>
     </div>
   </section>
 
-  <!-- 3. Featured guides ------------------------------------------------- -->
+  <!-- 3. Featured guides -->
   {featured.length > 0 && (
     <section class="section section--sunk">
       <div class="shell">
@@ -85,7 +84,6 @@ const fmtDate = (iso: string) =>
             <h2 class="section-title">Featured guides</h2>
           </div>
         </div>
-
         <div class="contents">
           {featured.map((g) => {
             const city = cityBySlug(g.data.city);
@@ -105,18 +103,17 @@ const fmtDate = (iso: string) =>
     </section>
   )}
 
-  <!-- 4. Latest from The Brief ------------------------------------------ -->
+  <!-- 4. Latest from The Brief -->
   {latest.length > 0 && (
-    <section class="section section--navy">
+    <section class="section section--sunk">
       <div class="shell">
         <div class="section-head">
           <div class="section-head__text">
-            <span class="eyebrow eyebrow--on-navy">Dispatches</span>
+            <span class="eyebrow">Dispatches</span>
             <h2 class="section-title">Latest from The Brief</h2>
           </div>
-          <a class="tlink btn--on-navy" href="/the-brief" style="border:0;padding:0;color:var(--on-navy);">View all <span class="arrow">→</span></a>
+          <a class="tlink" href="/the-brief">View all <span class="arrow">→</span></a>
         </div>
-
         <div class="brief-grid">
           {latest.map((post) => (
             <a class="brief-card" href={`/the-brief/${post.id}`}>
@@ -133,7 +130,7 @@ const fmtDate = (iso: string) =>
     </section>
   )}
 
-  <!-- 5. About ----------------------------------------------------------- -->
+  <!-- 5. About -->
   <section class="section">
     <div class="shell">
       <div class="about-split">
@@ -161,4 +158,5 @@ const fmtDate = (iso: string) =>
       </div>
     </div>
   </section>
+
 </BaseLayout>
