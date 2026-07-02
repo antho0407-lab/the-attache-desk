@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Meridians from '../components/Meridians.astro';
 import { cities, cityBySlug } from '../data/cities';
 import { getCollection } from 'astro:content';
 
@@ -28,7 +27,6 @@ const fmtDate = (iso: string) =>
 <BaseLayout title="The Attaché Desk">
   <!-- 1. Hero ------------------------------------------------------------ -->
   <section class="hero">
-    <Meridians />
     <div class="shell hero__inner reveal">
       <span class="eyebrow eyebrow--on-navy">Field Reference · Relocation &amp; Postings</span>
       <h1>Practical city guides for <span class="accent">diplomatic life</span> abroad.</h1>
