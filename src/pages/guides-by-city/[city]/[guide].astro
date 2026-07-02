@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import Meridians from '../../../components/Meridians.astro';
 import { cityBySlug } from '../../../data/cities';
 import { getCollection, render } from 'astro:content';
 
@@ -26,7 +25,6 @@ const fmtDate = (iso: string) =>
 ---
 <BaseLayout title={guide.data.title} description={guide.data.summary}>
   <section class="doc-head">
-    <Meridians />
     <div class="shell doc-head__inner">
       <a class="backlink" href={`/guides-by-city/${guide.data.city}`}>
         <span class="arrow">←</span> {cityInfo.name} guides
