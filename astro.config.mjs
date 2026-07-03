@@ -1,8 +1,8 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import rehypeExternalLinks from 'rehype-external-links';
+import sitemap from '@astrojs/sitemap';
 
-// https://astro.build/config
 export default defineConfig({
   site: 'https://theattachedesk.com',
   output: 'static',
@@ -10,6 +10,7 @@ export default defineConfig({
     format: 'directory',
   },
   trailingSlash: 'ignore',
+  integrations: [sitemap()],
   markdown: {
     rehypePlugins: [
       [
