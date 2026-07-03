@@ -11,7 +11,8 @@
     "astro": "astro"
   },
   "dependencies": {
-  "astro": "^5.5.5",
-  "@astrojs/sitemap": "^3.0.0",
-  "rehype-external-links": "^3.0.0"
+    "astro": "^5.5.5",
+    "@astrojs/sitemap": "^3.0.0",
+    "rehype-external-links": "^3.0.0"
+  }
 }
