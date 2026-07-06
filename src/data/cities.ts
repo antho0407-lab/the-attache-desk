@@ -64,7 +64,7 @@ export const cities: City[] = [
     country: 'Singapore',
     cc: 'SG',
     note: 'Bilateral posts and regional offices.',
-    status: 'soon',
+    status: 'active',
   },
   {
     slug: 'tokyo',
