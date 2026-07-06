@@ -56,7 +56,7 @@ export const cities: City[] = [
     country: 'United States',
     cc: 'US',
     note: 'UN Headquarters and permanent missions.',
-    status: 'soon',
+    status: 'active',
   },
   {
     slug: 'singapore',
