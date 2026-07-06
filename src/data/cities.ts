@@ -48,7 +48,7 @@ export const cities: City[] = [
     country: 'United Kingdom',
     cc: 'GB',
     note: 'Bilateral missions and IMO.',
-    status: 'soon',
+    status: 'active',
   },
   {
     slug: 'new-york',
