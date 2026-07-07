@@ -72,7 +72,7 @@ export const cities: City[] = [
     country: 'Japan',
     cc: 'JP',
     note: 'Bilateral missions and UN University.',
-    status: 'soon',
+    status: 'active',
   },
 ];
 
