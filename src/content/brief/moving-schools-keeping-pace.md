@@ -1,6 +1,6 @@
 ---
 title: "Moving schools, keeping pace"
-date: "2026-07-09"
+date: "2026-07-08"
 dek: "Curriculum continuity is the schooling question that matters most for families on a rotating posting. It rarely gets asked early enough."
 tag: "Relocation"
 status: "published"
