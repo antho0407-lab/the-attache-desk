@@ -45,4 +45,4 @@ Before committing to a school place, families should check curriculum continuity
 
 ---
 
-*Last published 9 July 2026.*
+*Last published 8 July 2026.*
