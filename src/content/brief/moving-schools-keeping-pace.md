@@ -28,6 +28,8 @@ Two things are worth doing before a posting is finalised rather than after. Firs
 
 The IB was built for this situation. But so was the question.
 
+---
+
 What to verify
 
 Before committing to a school place, families should check curriculum continuity, language of instruction, year-group placement, examination boards, transcript implications and any education allowance available through their organisation or sending state.
