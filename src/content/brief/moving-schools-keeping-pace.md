@@ -12,7 +12,7 @@ status: "published"
 
 When a posting is confirmed, families typically ask two questions about schools: which ones are good, and which ones have places. The third question, the one that matters most for a child who will move again in three or four years, often comes later than it should: which curriculum will travel with them?
 
-The International Baccalaureate was created in Geneva in 1968 precisely to answer this question. Its founders at the International School of Geneva (Ecolint) needed a qualification that would be recognised by universities across multiple countries, because the children of international civil servants and diplomats could not afford to have their secondary education reset every time a parent was reassigned. The IB Diploma is now accepted by universities in over 160 countries, and the full IB continuum, from the Primary Years Programme through to the Diploma, is designed around the assumption that students will move.
+The International Baccalaureate was created in Geneva in 1968 precisely to answer this question. Its founders at the International School of Geneva (Ecolint) needed a qualification that would be recognised by universities across multiple countries, because the children of international civil servants and diplomats could not afford to have their secondary education reset every time a parent was reassigned. Each year, more than 4,500 universities in over 110 countries and territories receive IB student transcripts, and the full IB continuum, from the Primary Years Programme through to the Diploma Programme, is designed around the reality that students may move.
 
 That founding logic is still the clearest argument for choosing an IB school at the start of a posting, particularly for families who know they will rotate more than once. A student who begins the IB Middle Years Programme in Geneva and continues it in Brussels or Vienna is working within the same framework, assessed on the same criteria, and presents a coherent academic record to a university admissions office.
 
@@ -27,6 +27,10 @@ None of this is unsolvable, and international schools deal with mid-year and mid
 Two things are worth doing before a posting is finalised rather than after. First, map the curriculum your child is currently in against what is available at the destination, and identify specifically where the discontinuities are. Second, check what education support your organisation or sending state provides. Many international organisations, including the UN system and the EU institutions, offer education grants or allowances specifically structured around the cost of maintaining curriculum continuity, which sometimes includes boarding school arrangements that allow a child to remain in one school while a parent rotates.
 
 The IB was built for this situation. But so was the question.
+
+What to verify
+
+Before committing to a school place, families should check curriculum continuity, language of instruction, year-group placement, examination boards, transcript implications and any education allowance available through their organisation or sending state.
 
 ---
 
