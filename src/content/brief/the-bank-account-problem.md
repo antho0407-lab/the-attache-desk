@@ -33,4 +33,4 @@ The specifics above are France's, but the underlying pattern is likely to repeat
 
 ---
 
-*Last published 16 July 2026.*
+*Last published 22 July 2026.*
