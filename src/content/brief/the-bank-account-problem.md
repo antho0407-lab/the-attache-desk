@@ -1,6 +1,6 @@
 ---
 title: "The bank account problem"
-date: "2026-07-29"
+date: "2026-07-30"
 dek: "The obstacle is rarely eligibility. It is timing, and which document a bank is willing to accept before the official one arrives. Using France as a worked example."
 tag: "Relocation"
 status: "published"
