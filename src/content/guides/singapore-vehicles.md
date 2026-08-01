@@ -47,6 +47,8 @@ These figures are in addition to the vehicle's purchase price and other fees. Wh
 
 **Additional Registration Fee (ARF):** Normally calculated at 100-220% of the vehicle's Open Market Value (OMV), the ARF is a significant cost for private vehicle owners. Diplomatic vehicles are generally exempt from ARF under the Exemption Order.
 
+**A note on terminology:** Singapore does not impose a stamp duty on vehicles, unlike some other jurisdictions. The equivalent cost burden in Singapore comes from the COE and the ARF described above, not from a stamp duty. If you have read about vehicle stamp duty elsewhere, it does not apply here.
+
 **Road tax:** Diplomatic vehicles are generally exempt from annual road tax.
 
 **Goods and Services Tax (GST):** The 9% GST applicable on vehicle purchases may also be subject to exemption for diplomatic staff through the MFA customs relief process. Confirm with your mission.
