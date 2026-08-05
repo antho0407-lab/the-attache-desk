@@ -1,6 +1,6 @@
 ---
 title: "The reciprocity rule"
-date: "2026-07-30"
+date: "2026-08-05"
 dek: "Two missions can hold the same accreditation category and still receive different treatment. The difference is not status. It is what their two governments agreed to do for each other."
 tag: "Protocol"
 status: "published"
