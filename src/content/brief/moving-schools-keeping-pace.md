@@ -34,6 +34,8 @@ What to verify
 
 Before committing to a school place, families should check curriculum continuity, language of instruction, year-group placement, examination boards, transcript implications and any education allowance available through their organisation or sending state.
 
+For city-specific admissions timing, curriculum options and documentation requirements, see the companion guides: [Schools in Paris](/guides-by-city/paris/schools), [Schools in Geneva](/guides-by-city/geneva/schools), [Schools in Brussels](/guides-by-city/brussels/schools), [Schools in Vienna](/guides-by-city/vienna/schools), [Schools in London](/guides-by-city/london/schools), [Schools in New York](/guides-by-city/new-york/schools), [Schools in Singapore](/guides-by-city/singapore/schools) and [Schools in Tokyo](/guides-by-city/tokyo/schools).
+
 ---
 
 ## Official and reference sources
