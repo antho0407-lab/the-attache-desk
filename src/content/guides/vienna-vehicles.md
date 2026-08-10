@@ -3,7 +3,7 @@ title: "Vehicles in Vienna"
 city: "vienna"
 category: "vehicles"
 categoryLabel: "Vehicles"
-summary: "Diplomatic vehicle registration in Austria, the WD plate system, the role of MA46, VAT exemption conditions, and end-of-posting deregistration."
+summary: "A practical guide to diplomatic vehicle registration in Vienna: the WD plate system, the role of MA46, VAT exemption conditions, and end-of-posting deregistration for diplomatic and international staff."
 reviewed: "2026-07-01"
 ref: "AT·VEH·01"
 order: 2
